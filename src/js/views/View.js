@@ -18,16 +18,11 @@ export default class View {
     const newDOMArr = Array.from(newDOM.querySelectorAll('*'));
     newDOMArr.forEach(function (lmnt, i) {
       const curLmnt = curDOM[i];
-      if (
-        !lmnt.isEqualNode(curLmnt) &&
-        lmnt.firstChild?.nodeValue.trim() !== ''
-      ) {
+      if (!lmnt.isEqualNode(curLmnt) && lmnt.firstChild?.nodeValue.trim() !== '') {
         curLmnt.textContent = lmnt.textContent;
       }
       if (!lmnt.isEqualNode(curLmnt)) {
-        Array.from(lmnt.attributes).forEach(attr =>
-          curLmnt.setAttribute(attr.name, attr.value)
-        );
+        Array.from(lmnt.attributes).forEach(attr => curLmnt.setAttribute(attr.name, attr.value));
       }
     });
   }

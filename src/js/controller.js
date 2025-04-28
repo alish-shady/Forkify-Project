@@ -68,6 +68,7 @@ function controlAddBookmark() {
   try {
     if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
     else model.deleteBookmark(model.state.recipe.id);
+    console.dir(model.addBookmark);
     recipeView.update(model.state.recipe);
     if (!model.state.bookmarks.length) throw new Error();
     bookmarksView.render(model.state.bookmarks);
